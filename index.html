@@ -805,6 +805,58 @@
       border: 1px solid rgba(0,212,255,0.1);
     }
 
+    .exp-company-header {
+      font-size: 1rem;
+      color: var(--accent-2);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .exp-company-tenure {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      margin-bottom: 20px;
+    }
+    .exp-subrole {
+      position: relative;
+      padding-left: 20px;
+      padding-bottom: 28px;
+      border-left: 2px solid rgba(0,212,255,0.15);
+    }
+    .exp-subrole:last-child {
+      padding-bottom: 0;
+      border-left-color: transparent;
+    }
+    .exp-subrole::before {
+      content: '';
+      position: absolute;
+      left: -5px;
+      top: 6px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--primary);
+    }
+    .exp-subrole.current-role::before {
+      background: var(--green);
+      box-shadow: 0 0 8px rgba(16,185,129,0.4);
+    }
+    .exp-subrole-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+    .exp-subrole-dates {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+    }
+    .exp-subrole-dates .exp-subrole-duration {
+      margin-left: 8px;
+      opacity: 0.7;
+    }
+
     /* ─── Projects ─── */
     .projects-grid {
       display: grid;
@@ -1333,6 +1385,7 @@
       .exp-dates { text-align: left; padding-right: 0; padding-left: 0; }
       .exp-line { display: none; }
       .exp-content { padding-left: 0; }
+      .exp-subrole { padding-left: 16px; }
       .projects-grid { grid-template-columns: 1fr; }
       .recog-grid { grid-template-columns: 1fr; }
       .qa-showcase { grid-template-columns: 1fr; }
@@ -1407,7 +1460,7 @@
         </h1>
         <p class="hero-role">Software QA Lead &amp; Test Automation Architect</p>
         <p class="hero-desc">
-          10.5+ years leading Automation &amp; Manual Testing for enterprise web apps.
+          <span id="hero-total-exp"></span>+ years leading Automation &amp; Manual Testing for enterprise web apps.
           Proven expertise in test strategy, framework design, CI/CD integration,
           and Agile QA leadership — driving <strong>quality at scale</strong>.
         </p>
@@ -1611,7 +1664,7 @@
         </div>
         <div class="metric-card">
           <div class="metric-icon" style="color: var(--green);"><i class="fas fa-calendar-check"></i></div>
-          <div class="metric-number" data-count="10">0</div>
+          <div class="metric-number" id="metric-exp" data-count="10">0</div>
           <div class="metric-label">Years of Experience</div>
         </div>
         <div class="metric-card">
@@ -1644,7 +1697,7 @@
       <div class="about-grid reveal">
         <div class="about-text">
           <p>
-            Software QA with <strong>10.5 years of experience</strong> leading Automation and Manual Testing
+            Software QA with <strong><span id="about-total-exp"></span> years of experience</strong> leading Automation and Manual Testing
             initiatives for enterprise-grade web applications. Proven expertise in <strong>test strategy,
             automation framework design, CI/CD integration</strong>, Agile QA leadership, and cross-functional collaboration.
           </p>
@@ -1734,26 +1787,52 @@
         <div class="exp-item current">
           <div class="exp-dates">
             <div class="exp-date-range">Mar 2020 — Present</div>
-            <div class="exp-duration">6+ years</div>
+            <div class="exp-duration" id="exp-freshworks-duration"></div>
           </div>
           <div class="exp-line"><div class="exp-dot"></div><div class="exp-connector"></div></div>
           <div class="exp-content">
-            <div class="exp-role">Software Test Lead</div>
-            <div class="exp-company">Freshworks Inc — Hyderabad, India</div>
-            <div class="exp-desc">
-              Leading QA for Freshdesk &amp; Freshdesk Omni (CRM domain). Designed and maintained
-              Selenium automation framework (Ruby) using Page Object Model. Led automation strategy
-              using Playwright (TypeScript) for modern web testing. Integrated regression suites with
-              Jenkins CI pipelines. Implemented automated Slack notifications for QA metrics, PR reviews
-              &amp; pending tasks. Mentored QA engineers, introduced BDD practices, and conducted code reviews.
+            <div class="exp-company-header">Freshworks Inc — Hyderabad, India</div>
+            <div class="exp-company-tenure" id="exp-freshworks-tenure"></div>
+
+            <div class="exp-subrole current-role">
+              <div class="exp-subrole-title">Lead Software Engineer in Test</div>
+              <div class="exp-subrole-dates">Mar 2024 — Present <span class="exp-subrole-duration" id="exp-lead-duration"></span></div>
+              <div class="exp-desc">
+                Leading QA for Freshdesk &amp; Freshdesk Omni (CRM domain). Driving automation strategy
+                using Playwright (TypeScript) for modern web testing. Implemented automated Slack
+                notifications for QA metrics, PR reviews &amp; pending tasks. Mentored QA engineers,
+                introduced BDD practices, and conducted code reviews. Exploring AI-powered testing
+                initiatives leveraging Generative AI and Agentic AI for smarter test generation and
+                autonomous QA workflows.
+              </div>
+              <div class="exp-tags">
+                <span class="exp-tag">Playwright (TS)</span>
+                <span class="exp-tag">AI</span>
+                <span class="exp-tag">Generative AI</span>
+                <span class="exp-tag">Agentic AI</span>
+                <span class="exp-tag">Jenkins</span>
+                <span class="exp-tag">API Testing</span>
+                <span class="exp-tag">GitHub</span>
+              </div>
             </div>
-            <div class="exp-tags">
-              <span class="exp-tag">Selenium (Ruby)</span>
-              <span class="exp-tag">Playwright (TS)</span>
-              <span class="exp-tag">Jenkins</span>
-              <span class="exp-tag">API Testing</span>
-              <span class="exp-tag">Freshrelease</span>
-              <span class="exp-tag">GitHub</span>
+
+            <div class="exp-subrole">
+              <div class="exp-subrole-title">Senior Software Engineer in Test</div>
+              <div class="exp-subrole-dates">Mar 2020 — Mar 2024 <span class="exp-subrole-duration">· 4 yrs</span></div>
+              <div class="exp-desc">
+                Designed and maintained Selenium automation framework (Ruby) using Page Object Model.
+                Integrated regression suites with Jenkins CI pipelines. Built QA Overall Status Dashboard
+                for real-time test health visibility across teams. Built and maintained API testing suites
+                for backend service validation.
+              </div>
+              <div class="exp-tags">
+                <span class="exp-tag">Selenium (Ruby)</span>
+                <span class="exp-tag">Playwright (TS)</span>
+                <span class="exp-tag">Jenkins</span>
+                <span class="exp-tag">API Testing</span>
+                <span class="exp-tag">Freshrelease</span>
+                <span class="exp-tag">GitHub</span>
+              </div>
             </div>
           </div>
         </div>
@@ -2075,6 +2154,41 @@
   <!-- ═══ JavaScript ═══ -->
   <script>
     document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // ── Dynamic Experience Calculation ──
+    (function calcExperience() {
+      const now = new Date();
+      const careerStart = new Date(2015, 7, 1); // Aug 2015
+      const currentRoleStart = new Date(2024, 2, 1); // Mar 2024
+
+      function diffInYearsMonths(from, to) {
+        let years = to.getFullYear() - from.getFullYear();
+        let months = to.getMonth() - from.getMonth();
+        if (to.getDate() < from.getDate()) months--;
+        if (months < 0) { years--; months += 12; }
+        return { years, months };
+      }
+
+      const total = diffInYearsMonths(careerStart, now);
+      const totalDecimal = +(total.years + total.months / 12).toFixed(1);
+
+      const current = diffInYearsMonths(currentRoleStart, now);
+      const freshworksStart = new Date(2020, 2, 1); // Mar 2020
+      const freshworks = diffInYearsMonths(freshworksStart, now);
+
+      function formatDuration(d) {
+        if (d.years > 0 && d.months > 0) return d.years + ' yrs ' + d.months + ' mos';
+        if (d.years > 0) return d.years + ' yr' + (d.years > 1 ? 's' : '');
+        return d.months + ' mos';
+      }
+
+      document.getElementById('hero-total-exp').textContent = totalDecimal;
+      document.getElementById('about-total-exp').textContent = totalDecimal;
+      document.getElementById('exp-lead-duration').textContent = '· ' + formatDuration(current);
+      document.getElementById('exp-freshworks-duration').textContent = formatDuration(freshworks);
+      document.getElementById('exp-freshworks-tenure').textContent = formatDuration(freshworks);
+      document.getElementById('metric-exp').setAttribute('data-count', Math.floor(totalDecimal));
+    })();
 
     // ── Floating QA Particles ──
     (function createParticles() {
